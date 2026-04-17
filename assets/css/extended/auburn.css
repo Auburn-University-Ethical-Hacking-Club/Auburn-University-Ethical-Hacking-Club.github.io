@@ -1,0 +1,30 @@
+:root {
+  --theme: #03244D;        /* navy background */
+  --entry: #042d5e;        /* card/post background */
+  --primary: #FFFFFF;      /* main text */
+  --secondary: #a8b8c8;    /* subtle text */
+  --border: #0a3d7a;       /* borders */
+  --code-bg: #021d3a;      /* code blocks */
+}
+
+/* Orange accents on links and highlights */
+a:hover,
+.post-title:hover {
+  color: #E87722 !important;
+}
+
+.logo a:hover {
+  color: #E87722;
+}
+
+/* Active nav link */
+.nav a:hover {
+  color: #E87722;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+}

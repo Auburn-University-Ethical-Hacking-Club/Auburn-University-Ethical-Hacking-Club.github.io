@@ -1,0 +1,15 @@
+baseURL = "Auburn-University-Ethical-Hacking-Club.github.io"
+languageCode = "en-us"
+title = "Auburn Ethical Hacking Club"
+theme = "PaperMod"
+
+[params]
+  defaultTheme = "dark"
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  logo = "/images/ehc-logo.png"
+
+[params.homeInfoParams]
+  Title = "Auburn Ethical Hacking Club"
+  Content = "CTF writeups, resources, and club updates."
