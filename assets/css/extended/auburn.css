@@ -2,11 +2,11 @@
 html.dark,
 html[data-theme="dark"] {
   --theme: #0b2341;
-  --entry: #042d5e;
+  --entry: #0b2341;
   --primary: #FFFFFF;
   --secondary: #a8b8c8;
-  --tertiary: #0a3d7a;
-  --border: #0a3d7a;
+  --tertiary: #0b2341;
+  --border: #0b2341;
   --code-bg: #021d3a;
   --code-block-bg: #021d3a;
 }
