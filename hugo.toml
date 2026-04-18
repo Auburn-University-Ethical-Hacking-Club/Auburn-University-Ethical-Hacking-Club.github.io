@@ -8,8 +8,37 @@ theme = "PaperMod"
   ShowReadingTime = true
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
-  logo = "/images/ehc-logo.png"
+
+[params.label]
+  text = "Auburn Ethical Hacking Club"
+  icon = "/images/ehc-logo.png"
+  iconHeight = 40
 
 [params.homeInfoParams]
   Title = "Auburn Ethical Hacking Club"
   Content = "CTF writeups, resources, and club updates."
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 10
+
+[[menu.main]]
+  name = "Constitution"
+  url = "/constitution/"
+  weight = 20
+
+[[menu.main]]
+  name = "Discord"
+  url = "https://discord.com/invite/hYmnWPG"
+  weight = 30
+
+[[menu.main]]
+  name = "GitHub"
+  url = "https://github.com/Auburn-University-Ethical-Hacking-Club"
+  weight = 40
+
+[[menu.main]]
+  name = "LinkedIn"
+  url = "https://www.linkedin.com/company/103816580/admin/dashboard/"
+  weight = 50

@@ -1,28 +1,28 @@
-:root {
-  --theme: #03244D;        /* navy background */
-  --entry: #042d5e;        /* card/post background */
-  --primary: #FFFFFF;      /* main text */
-  --secondary: #a8b8c8;    /* subtle text */
-  --border: #0a3d7a;       /* borders */
-  --code-bg: #021d3a;      /* code blocks */
+/* Dark mode only — light mode is untouched */
+body.dark {
+  --theme: #03244D;
+  --entry: #042d5e;
+  --primary: #FFFFFF;
+  --secondary: #a8b8c8;
+  --tertiary: #0a3d7a;
+  --border: #0a3d7a;
+  --code-bg: #021d3a;
+  --code-block-bg: #021d3a;
 }
 
-/* Orange accents on links and highlights */
+/* Orange hover accents */
 a:hover,
 .post-title:hover {
   color: #E87722 !important;
 }
 
-.logo a:hover {
-  color: #E87722;
+.nav a:hover,
+#menu-toggle:hover {
+  color: #E87722 !important;
 }
 
-/* Active nav link */
-.nav a:hover {
-  color: #E87722;
-}
-
-.logo img {
+/* Logo sizing */
+#logo img {
   height: 40px;
   width: auto;
   margin-right: 8px;
