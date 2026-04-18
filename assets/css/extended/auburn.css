@@ -21,7 +21,7 @@ html[data-theme="dark"] .post-single {
   background-color: #2a2d35 !important;
   border: 1px solid #3a3d47 !important;
   border-radius: 8px;
-  padding: 1rem 2rem 2rem;
+  padding: 0 2rem 2rem;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
