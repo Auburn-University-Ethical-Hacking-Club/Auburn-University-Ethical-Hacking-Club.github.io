@@ -1,4 +1,4 @@
-baseURL = "Auburn-University-Ethical-Hacking-Club.github.io"
+baseURL = "https://Auburn-University-Ethical-Hacking-Club.github.io/"
 languageCode = "en-us"
 title = "Auburn Ethical Hacking Club"
 theme = "PaperMod"
