@@ -1,8 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Auburn-University-Ethical-Hacking-Club/Auburn-University-Ethical-Hacking-Club.github.io
   branch: main
-  identity_url: https://famous-arithmetic-2376e4.netlify.app/.netlify/identity
-  gateway_url: https://famous-arithmetic-2376e4.netlify.app/.netlify/git
+  base_url: https://famous-arithmetic-2376e4.netlify.app
+  auth_endpoint: auth
 
 media_folder: static/images
 public_folder: /images
