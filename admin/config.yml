@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Auburn-University-Ethical-Hacking-Club/Auburn-University-Ethical-Hacking-Club.github.io
   branch: main
-  base_url: https://famous-arithmetic-2376e4.netlify.app
+  base_url: https://api.netlify.com
   auth_endpoint: auth
 
 media_folder: static/images
