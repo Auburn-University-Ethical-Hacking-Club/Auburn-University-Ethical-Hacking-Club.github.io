@@ -1,5 +1,5 @@
 /* Dark mode only — light mode is untouched */
-.dark {
+[data-theme="dark"] {
   --theme: #03244D;
   --entry: #042d5e;
   --primary: #FFFFFF;
