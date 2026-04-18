@@ -1,4 +1,5 @@
 /* Dark mode only — light mode is untouched */
+.dark,
 [data-theme="dark"] {
   --theme: #03244D;
   --entry: #042d5e;
@@ -8,6 +9,11 @@
   --border: #0a3d7a;
   --code-bg: #021d3a;
   --code-block-bg: #021d3a;
+}
+
+.dark body,
+[data-theme="dark"] body {
+  background-color: #03244D;
 }
 
 /* Orange hover accents */
