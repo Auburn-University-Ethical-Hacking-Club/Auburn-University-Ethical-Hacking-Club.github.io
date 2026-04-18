@@ -1,15 +1,28 @@
 /* Dark mode only — light mode is untouched */
 html.dark body,
-html[data-theme="dark"] body {
+html[data-theme="dark"] body,
+html.dark .main,
+html[data-theme="dark"] .main {
   background-color: #060f1a !important;
   color: #FFFFFF;
 }
 
+/* Post list cards */
 html.dark .entry,
 html[data-theme="dark"] .entry {
   background-color: #2a2d35 !important;
   border: 1px solid #3a3d47 !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Single post content card */
+html.dark .post-single,
+html[data-theme="dark"] .post-single {
+  background-color: #2a2d35 !important;
+  border: 1px solid #3a3d47 !important;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* Orange hover accents */
