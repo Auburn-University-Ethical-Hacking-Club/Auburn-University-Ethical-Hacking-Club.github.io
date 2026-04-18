@@ -1,14 +1,25 @@
 /* Dark mode only — light mode is untouched */
 html.dark,
 html[data-theme="dark"] {
-  --theme: #0b2341;
-  --entry: #0b2341;
+  --theme: #060f1a;
+  --entry: #2a2d35;
   --primary: #FFFFFF;
   --secondary: #a8b8c8;
-  --tertiary: #0b2341;
-  --border: #0b2341;
-  --code-bg: #021d3a;
-  --code-block-bg: #021d3a;
+  --tertiary: #1a1d24;
+  --border: #3a3d47;
+  --code-bg: #1a1d24;
+  --code-block-bg: #1a1d24;
+}
+
+html.dark body,
+html[data-theme="dark"] body {
+  background-color: #060f1a !important;
+}
+
+html.dark .entry,
+html[data-theme="dark"] .entry {
+  border: 1px solid #3a3d47;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 html.dark body,
