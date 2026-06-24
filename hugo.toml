@@ -5,6 +5,11 @@ theme = "PaperMod"
 
 paginate = 15
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
+
 [params]
   defaultTheme = "dark"
   ShowReadingTime = true
