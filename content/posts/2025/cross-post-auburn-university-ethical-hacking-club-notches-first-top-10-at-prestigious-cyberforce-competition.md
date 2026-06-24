@@ -5,4 +5,4 @@ tags: ["event"]
 ---
 
 
-[](https://eng.auburn.edu/news/2025/12/ethical-hacking-club-team-takes-eighth-in-national-competition)
+[Article Here](https://eng.auburn.edu/news/2025/12/ethical-hacking-club-team-takes-eighth-in-national-competition)
