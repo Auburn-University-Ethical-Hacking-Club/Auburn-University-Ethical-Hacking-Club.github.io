@@ -17,6 +17,7 @@ summary: "Current AUEHC Officers"
 | Technical Advisor | Will Nickolson |
 | Technical Advisor | Bradley Bulson |
 | Technical Advisor | James Weaver |
+| Faculty Advisor |  Dr. Samuel Mulder |
 
 ---
 
