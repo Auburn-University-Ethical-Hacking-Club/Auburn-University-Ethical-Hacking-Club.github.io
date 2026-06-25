@@ -5,10 +5,6 @@ url: "/previous-officers/"
 summary: "Previous AUEHC Officers"
 ---
 
-## Previous Officers
-
----
-
 ### 2025 – 2026
 
 | Role | Fall 2025 | Spring 2026 |

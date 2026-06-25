@@ -5,8 +5,6 @@ url: "/officers/"
 summary: "Current AUEHC Officers"
 ---
 
-## Current Officers
-
 | Role | Name |
 |------|------|
 | President | Marshall Nelson |
