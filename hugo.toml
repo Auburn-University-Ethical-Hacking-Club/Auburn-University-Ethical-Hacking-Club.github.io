@@ -31,9 +31,14 @@ paginate = 15
   weight = 10
 
 [[menu.main]]
+  name = "Officers"
+  url = "/officers/"
+  weight = 20
+
+[[menu.main]]
   name = "Constitution"
   url = "/constitution/"
-  weight = 20
+  weight = 30
 
 [[menu.main]]
   name = "Discord"

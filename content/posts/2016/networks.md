@@ -4,7 +4,6 @@ date: "2016-02-08T00:00:00.000Z"
 tags: ["networking"]
 ---
 
-
 In the third week of the semester we began with a basic rundown of networks and host discovery using nmap. Then, we talked about memory forensics using “Volatility”
 
 # Network Basics
@@ -16,43 +15,39 @@ For all intents and purposes of this article, a network is just a collection (2+
 nmap is an open source network exploration tool, best known for its applications in host discovery and scanning. It was designed to rapidly scan large networks and gain tons of useful information about your surroundings. If you just recently cracked into a WiFi network and need to figure out where to go next then this is the tool to use. It can find information pertaining to host ips, any services and operating systems they’re running, if packet filtering or firewall rules are enabled, what ports you can connect to, and more.
 
 Most of the basic commands are pretty straight forward, in order to scan a single host you have three options:
-[code]
-    nmap 192.168.1.1
-    nmap server.example.com
-    nmap -v server.example.com
-    
-[/code]
+```
+nmap 192.168.1.1
+nmap server.example.com
+nmap -v server.example.com
+```
 
 This will print out a report that shows you if the host is up, and if it is; how many and what ports are open for use. Scanning a block of ips is similar:
-[code]
-    nmap 192.168.1.1 192.168.1.2 192.168.1.3
-    nmap 192.168.1.1,2,3
-    nmap 192.168.1.1-20
-    nmap 192.168.1.*
-    nmap 192.168.1.0/24
-    nmap 192.168.1.0/24 --exclude 192.168.1.5
-    
-[/code]
+```
+nmap 192.168.1.1 192.168.1.2 192.168.1.3
+nmap 192.168.1.1,2,3
+nmap 192.168.1.1-20
+nmap 192.168.1.*
+nmap 192.168.1.0/24
+nmap 192.168.1.0/24 --exclude 192.168.1.5
+```
 
 The first two commands will scan ip addresses 192.168.1.1 2 and 3, the third will scan 192.168.1.1 - 192.168.1.20, the next two will scan the entire block 192.168.1.0 - 192.168.1.255, and the last one will do the same thing but skip 192.168.1.5. Now we can run other scans on those devices to figure out specific information about them.
-[code]
-    nmap -p 80 192.168.1.1
-    nmap -p T:80 192.168.1.1
-    nmap --top-ports 5 192.168.1.1
-    
-    nmap -sV 192.168.1.1
-    
-[/code]
+```
+nmap -p 80 192.168.1.1
+nmap -p T:80 192.168.1.1
+nmap --top-ports 5 192.168.1.1
+
+nmap -sV 192.168.1.1
+```
 
 These commands will scan specific ports about an IP. The first will scan port 80, the second will specifically scan TCP 80, and the third will scan the top 5 most used ports from IANA. The final command will do service detection on a box, and tell you what services on what ports nmap thinks a box is running.
-[code]
-    nmap -v -A 192.168.1.254
-    nmap -O 192.168.1.1
-    
-    nmap -sA 192.168.1.254
-    nmap -PN 192.168.1.1
-    
-[/code]
+```
+nmap -v -A 192.168.1.254
+nmap -O 192.168.1.1
+
+nmap -sA 192.168.1.254
+nmap -PN 192.168.1.1
+```
 
 The first two will do OS detection and attempt to figure out if the host is running Linux, Windows, OSX, etc and what version/flavor. The second set of commands will test for firewall detection and tell you if your packet made it the host or not.
 

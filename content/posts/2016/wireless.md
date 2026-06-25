@@ -4,7 +4,6 @@ date: "2016-02-01T00:00:00.000Z"
 tags: ["wireless", "recap"]
 ---
 
-
 The second meeting started off with a simple discussion on Wireless Security Protocols, from OSA to WPA2. Then we went over the various ways to crack into these protocols using [Aircrack-ng](http://www.aircrack-ng.org/).
 
 ## History of Wireless Security
@@ -68,35 +67,30 @@ Aircrack is the premier wireless suite for assessing WiFi network security and i
 Cracking WEP with Aircrack turns out to be pretty simple, all you need is Kali Linux, to be close enough to an access point running WEP, something talking on the network, and a wireless card/adapter that supports packet injection.
 
 Firstly, you need to check the wireless capabilities of your box. You should see something with wireless capabilities like ‘wlan0’
-[code]
-    iwconfig
-    
-[/code]
+```
+iwconfig
+```
 
 Next we need to set that card to monitor mode, for example, with ‘wlan0’ and start actively monitoring for networks
-[code]
-    airmon-ng start wlan0
-    airodump-ng mon0
-    
-[/code]
+```
+airmon-ng start wlan0
+airodump-ng mon0
+```
 
 We’re searching for the MAC address and channel of the access point we’re hoping to crack, which will appear in the top section of the output of airodump-ng. Using this info we can start monitoring that network specifically for packets.
-[code]
-    airodump-ng --bssid "mac" -c "channel" -w WEPCrack mon0
-    
-[/code]
+```
+airodump-ng --bssid "mac" -c "channel" -w WEPCrack mon0
+```
 
 Once you’ve found some packets being transferred on the network, you can grab the mac address of a host on the network and do a replay attack to generate keys. Open another console and run:
-[code]
-    aireplay-ng -3 -b "AP mac" -h "Host mac" mon0
-    
-[/code]
+```
+aireplay-ng -3 -b "AP mac" -h "Host mac" mon0
+```
 
 After the #DATA column in your first console gets to a sizable number (15,000 + ), which should take 3-5 minutes. You can use aircrack to crack the data file.
-[code]
-    aircrack-ng WEPCrack-01.cap
-    
-[/code]
+```
+aircrack-ng WEPCrack-01.cap
+```
 
 If you have enough data for aircrack, then it should have no problem spitting out the key.
 

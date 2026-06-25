@@ -4,7 +4,6 @@ date: "2018-07-01T00:00:00.000Z"
 tags: ["writeup", "linux"]
 ---
 
-
 This is a write-up for OverTheWire Leviathan. I am writing this under the assumption that you have completed the bandit series. This guide should be pretty easy to follow along with and build upon the thought process introduced during Bandit.
 
 # Level 0
@@ -34,15 +33,14 @@ This level isn’t too hard either. Running `ltrace` on the executable shows us 
 # Level 6
 
 This level is an actual challenge in comparison to some of the previous levels. So the first thing we want to do is run the given executable. We then find out that the program is expecting a 4-digit code, and if you have completed _Bandit_ you should know that this means Brute Force. So, we are going to write a program that goes through all combinations of 4-digit numbers and try to get a shell. So in the _/tmp/_ directory we can create a program in **BASH** to handle this for us.
-[code]
-    #!/bin/bash
-    
-    for i in {0000..9999}
-    do
-    ~/leviathan6 $i
-    done
-    
-[/code]
+```
+#!/bin/bash
+
+for i in {0000..9999}
+do
+~/leviathan6 $i
+done
+```
 
 This should go through the combinations and get us what we want. After using `chmod` to make this code executable we can then run it and get a shell. Once we have that shell print the next level’s password and move on.
 

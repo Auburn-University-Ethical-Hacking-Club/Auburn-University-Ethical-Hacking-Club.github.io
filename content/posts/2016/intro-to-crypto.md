@@ -4,7 +4,6 @@ date: "2016-02-27T00:00:00.000Z"
 tags: ["cryptography", "writeup"]
 ---
 
-
 This week, Jacob went over the bare basics of cryptography, some of the most common ciphering techniques (substitution ciphers), and went over most of [Over The Wire’s](http://overthewire.org/wargames/krypton/krypton0.html) Krypton challenges.
 
 # Encoding vs Encryption vs Hashing vs Obfuscation
@@ -18,20 +17,18 @@ In order to access Krypton you’ll need an SSH Client (puTTy for windows, nativ
 # Krypton 0
 
 The 0th level gives you the string ‘S1JZUFRPTklTR1JFQVQ=’ and tells you that it is Base64 encoded, which is relatively easy to reverse. Just plug it into a [decoding website](https://www.base64decode.org/) or the linux command line to get the password to krypton1.
-[code]
-    echo 'S1JZUFRPTklTR1JFQVQ=' | base64 --decode
-    
-[/code]
+```
+echo 'S1JZUFRPTklTR1JFQVQ=' | base64 --decode
+```
 
 Base63 takes an input, like the word ‘Man’, converts it to ASCII, then to binary, and converts it back to ASCII in different group sizes. So the word ‘Man’ would turn into the ASCII values, 77-97-110, which is the same as the binary values, 01001101, 01100001, 01101110. These are concatenated together and converted into integers in groups of six, 010011, 010110, 000101, 101110 which correspond to 19,22,5,46 or the letters ‘TWFu’ based on the base64 index table.
 
 # Krypton 1
 
 If you log into krypton 1 and follow the instructions to the second challenge you’ll find a README file that says that krypton2 is encrypted using ROT13. ROT13 is a cipher that rotates all of the letters in a sequence by 13 letters, so A becomes N and so on. Letters later on wrap around the alphabet so Z would become M. So in order to translate the file we can use a website like [Rumkin](http://rumkin.com/tools/cipher/) or the linux command
-[code]
-    cat krypton2 | tr 'A-Za-z' 'N-ZA-Mn-za-m'
-    
-[/code]
+```
+cat krypton2 | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+```
 
 # Krypton 2
 
@@ -49,12 +46,11 @@ For this challenge, we can use a tool like [CryptoClub](http://www.cryptoclub.or
 # Krypton 4 + 5
 
 Krypton 4 and 5 use a Vigenere Cipher, which is similar to a Caesar cipher, but instead of using a number key, it uses another word as the key, like ‘GOLD.’ Now in order to encrypt text, you line the text up with the key and rotate based on the number values in the key, aka ‘G’ = 6 which would translate P to V.
-[code]
-    PROCEED MEETING AS AGREED
-    GOLDGOL DGOLDGO LD GOLDGO
-    VFZFKSO PKSELTU LV GUCHKR
-    
-[/code]
+```
+PROCEED MEETING AS AGREED
+GOLDGOL DGOLDGO LD GOLDGO
+VFZFKSO PKSELTU LV GUCHKR
+```
 
 For 4 and 5, we use the same process of Frequency Analysis as we did in step 3, but with a different website suited for Vigenere, [The Black Chamber](http://www.simonsingh.net/The_Black_Chamber/vigenere_cracking_tool.html). For Krypton 4, plug in the text and select the key length of 6, which was given to us. Scroll down to the bottom and line up the charts so that the frequencies of the given text and the frequencies of english are approximately the same and try and find out the key. Once you have the key you can decipher the krypton4 file using [Rumkin](http://rumkin.com/tools/cipher/). With krypon5 we aren’t given a keylength, so we have to use the pattern analysis given to us by Black Chamber to figure it out. Try the most likely key lengths and then try frequency analysis at the bottom and see if anything english pops out.
 

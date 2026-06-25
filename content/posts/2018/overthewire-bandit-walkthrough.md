@@ -4,7 +4,6 @@ date: "2018-07-01T00:00:00.000Z"
 tags: ["writeup", "linux"]
 ---
 
-
 This is my personal writeup for OverTheWire’s Bandit game. This guide is going to be targeted for beginners in this type of game or Capture The Flag(CTF). There are going to be many ways you can solve these problems, but I will only be covering the solutions that are easier to understand rather than easier to type. This guide is for showing you a simple thought process to solving Command Line based CTF problems. I will NOT just give someone the password for the level, this guide is for those that are trying to learn and get better at what they do. Even though I will be walking through these levels I highly encourage you to read the manual(man) pages of the commands that OverTheWire recommends for each bandit level. Some levels also have some reading on certain topics, that you might find very useful.
 
 ## Level 0
@@ -59,11 +58,10 @@ Once again log in to the bandit server using bandit4 and our newest password. Ou
 
   * `$ ls -a inhere`we see that there are about 10 different files here, and we don’t know which of these files has our password. It is very inefficient to just print out the contents of every file in the `inhere` directory and then parsing through to find a password. They did give us one clue; our password is in the only humand readable file in the `inhere` directory. So to check the type of information that’s in all of the files in `inhere` we are going to use the `file` command to get more information about the files.
 
-[code]
-    cd inhere
-    file ./*
-    
-[/code]
+```
+cd inhere
+file ./*
+```
 
   * _NOTE_ : The `*` is a wildcard similar to `?` but can represent an unlimited amount of characters This shows us that `-file07` is the only file which has ASCII text, so that must be our password.
   * `$ cat ./-file07`Copy the password and exit the session.
@@ -131,74 +129,65 @@ Login to bandit12. So now we start to get into some of the more challenging port
   * `$ cp data.txt /tmp/<UNIQUE NAME>`Let’s now move into our new working directory
   * `$ cd /tmp/<UNIQUE NAME>`We now will reverse the hexdump
 
-[code]
-    $ touch tempo
-    $ xxd -r data.txt tempo
-    
-[/code]
+```
+$ touch tempo
+$ xxd -r data.txt tempo
+```
 
   * _NOTE_ : This is the first time we are using the `touch` command. This command creates a blank with the given filename
   *  _NOTE_ : Thsi is also the fist time we are using `xxd`. This command deals with hexdumps Now that we have the dump reversed into tempo, we can now see what type of file it has become
   * `$ file tempo`This should say that tempo is now a gzip compressed file, to fix this we will use a variant of the gzip command to reverse it
 
-[code]
-    $ mv tempo tempo.gz
-    $ gunzip tempo.gz
-    
-[/code]
+```
+$ mv tempo tempo.gz
+$ gunzip tempo.gz
+```
 
 We now have unzipped the `tempo.gz` file, and we can check using `ls` to check and see that `tempo.gz` to `tempo`. So if we use the `file` command to check and see what type of file that `tempo` is we can see that it is bzip.
-[code]
-    $ file tempo
-    $ mv tempo tempo.bz
-    $ bunzip2 tempo.bz
-    
-[/code]
+```
+$ file tempo
+$ mv tempo tempo.bz
+$ bunzip2 tempo.bz
+```
 
 After doing this we get another gzipped file named `tempo`, so we will repeat the steps we took above
-[code]
-    $ mv tempo tempo.gz
-    $ gunzip tempo.gz
-    
-[/code]
+```
+$ mv tempo tempo.gz
+$ gunzip tempo.gz
+```
 
 Now after doing that we do a `file` on `tempo` and we can see that it is a POSIX tar file, which we haven’t dealt with yet. We will depackage it by using the `tar` command.
-[code]
-    $ mv tempo tempo.tar
-    $ tar -f tempo.tar -x
-    
-[/code]
+```
+$ mv tempo tempo.tar
+$ tar -f tempo.tar -x
+```
 
 This pulls out a file named `data5.bin` from the tar file, so we will run a `file` command on it to see what type of data it holds.
 
   * `$ file data5.bin`We see that it as well is a tar file, so we need to change its extension to the proper extension and extract the files from it.
 
-[code]
-    $ mv data5.bin data5.tar
-    $ tar -f data5.tar -x
-    
-[/code]
+```
+$ mv data5.bin data5.tar
+$ tar -f data5.tar -x
+```
 
 This pulls out a file that is named `data6.bin` and the `file` command says that it is a bzipped file, so we will repeat steps we took above to handle bzipped compressed data.
-[code]
-    $ mv data6.bin data6.bz
-    $ bunzip2 data6.bz
-    
-[/code]
+```
+$ mv data6.bin data6.bz
+$ bunzip2 data6.bz
+```
 
 Now we have the file `data6` and the `file` command says that it is another POSIX tar archive, so we must extract files from it.
-[code]
-    $ mv data6 data6.tar
-    $ tar -f data6.tar -x
-    
-[/code]
+```
+$ mv data6 data6.tar
+$ tar -f data6.tar -x
+```
 
 We should now have a file that is called `data8.bin` and `file` should show that it is a gzipped file. We know how to handle gzipped files using the same technique as above.
-[code]
-    $ mv data8.bin data8.gz
-    $ gunzip data8.gz
-    
-[/code]
+```
+$ mv data8.bin data8.gz
+$ gunzip data8.gz
+```
 
 Now we have the file `data8`. We can see that the content of data8 is ASCII text by using the `file` command. Since this is the only file that we have come across so far that has ASCII text let’s print out the contents of this file to see what information it has to give us.
 
@@ -243,22 +232,20 @@ To log in to bandit17 use the private key we just found. Once you’ve logged in
 ## Level 18 –> 19
 
 This is where things get a bit tricky for Windows users, but it is 100% possible. Here if we try to login using bandit18 and the password, we are immediately logged out after inputting our password. We need to print the contents of the file `readme`, but are not allowed time to input commands. We can combat this by using a arguments for the `ssh` command.
-[code]
-    $ ssh -p 2220 bandit18@bandit.labs.overthewire.org -f
-    $ cat readme
-    
-[/code]
+```
+$ ssh -p 2220 bandit18@bandit.labs.overthewire.org -f
+$ cat readme
+```
 
 This should print out the contents of the file right before it logs us out of the machine, but as long as we get our password.
 
 ## Level 19 –> 20
 
 After we login, we are told that we have a setuid binary that is in our home directory. We first need to understand what a setuid binary is. Setuid binaries give us a way to do things as if we were another user. Similar to programming, each one is unique, but can produce similar results. The first thing we need to do is figure out how this particular setuid binary works, and we are told that we can do that by just running the binary.
-[code]
-    $ ls
-    $ ./bandit20-do
-    
-[/code]
+```
+$ ls
+$ ./bandit20-do
+```
 
 This example tells us that all we must do to move on to use the binary to execute commands, and they should run as if we were bandit20. Let’s use this to get the bandit20 password.
 
@@ -303,29 +290,26 @@ We have another cron issue, but this time we are told that we need to write our 
   * `$ vim /tmp/<YOUR DIRECTORY NAME>/<NEW FILE NAME>.sh`
   * NOTE: This will open a blank text editor within the command line, it is highly suggested that you learn how to work in this particular text editor before trying to complete this level. In the text editor insert these lines.
 
-[code]
-    #!/bin/bash
-    cat /etc/bandit_pass/bandit24 >> /tmp/<YOUR DIRECTORY NAME>/<UNIQUE FILENAME>.txt
-    
-[/code]
+```
+#!/bin/bash
+cat /etc/bandit_pass/bandit24 >> /tmp/<YOUR DIRECTORY NAME>/<UNIQUE FILENAME>.txt
+```
 
 Save this file and exit VIM to return to the terminal. Copy this script we just wrote into the bandit24 sub-directory under `/var/spool/` after changing permissions so that the script is executable.
-[code]
-    $ chmod 777 /tmp/<YOUR DIRECTORY NAME>/<OUR SHELL SCRIPT>.sh
-    $ cp /tmp/<YOUR DIRECTORY NAME>/<OUR SHELL SCRIPT>.sh /var/spool/bandit24
-    
-[/code]
+```
+$ chmod 777 /tmp/<YOUR DIRECTORY NAME>/<OUR SHELL SCRIPT>.sh
+$ cp /tmp/<YOUR DIRECTORY NAME>/<OUR SHELL SCRIPT>.sh /var/spool/bandit24
+```
 
 We now can either wait a few minutes for the cronjob to execute or force an execution,and then we should be able to view a new file in our `/tmp` directory. If we `cat` out this file we should get the password for the next level. Too easy, am I right?
 
 ## Level 24 –> 25
 
 Here we have to perform a brute force attack. So, now we aren’t told much other than there is a deamon listening on port 30002 and will give us the password to level 25 when we give the correct combination of this level’s password and 4-digit pin. So, first we need to make a working directory and move into it.
-[code]
-    $ mkdir /tmp/<UNIQUE NAME>
-    $ cd /tmp/<UNIQUE NAME>
-    
-[/code]
+```
+$ mkdir /tmp/<UNIQUE NAME>
+$ cd /tmp/<UNIQUE NAME>
+```
 
 We now need to figure out what protocol the daemon is using to listen on the port. So we need to do a `nmap`.
 
@@ -335,31 +319,28 @@ We now need to figure out what protocol the daemon is using to listen on the por
   * NOTE: The difference between the two lines is that the `-l` argument is listening for traffic. This allows us to interface with the daemon, so we will take note of this. Exit the `nc` session, and let’s begin writing our brute forcer.
   * `$ vim brute.sh`This is the script
 
-[code]
-    #!/bin/bash
-    password='<bandit24 password>'
-    x=0
-    while [ $x -lt 10000 ]; do
-      foo=$(printf "%04d" $x)
-      echo $password' '$foo >> numbers.txt
-      x=$((x+1))
-    done
-    
-[/code]
+```
+#!/bin/bash
+password='<bandit24 password>'
+x=0
+while [ $x -lt 10000 ]; do
+  foo=$(printf "%04d" $x)
+  echo $password' '$foo >> numbers.txt
+  x=$((x+1))
+done
+```
 
 Exit VIM and save the script. We now need to change the permissions on the script so that we can execute it.
-[code]
-    $ chmod 777 brute.sh
-    $ ./brute.sh
-    
-[/code]
+```
+$ chmod 777 brute.sh
+$ ./brute.sh
+```
 
 We now need to use all of the possible inputs and perform the attack on the daemon.
-[code]
-    $ cat numbers.txt | nc localhost 30002 >> rezult
-    $ sort rezult | uniq -u
-    
-[/code]
+```
+$ cat numbers.txt | nc localhost 30002 >> rezult
+$ sort rezult | uniq -u
+```
 
 This attack works by inputing every possible value from the numbers.txt file we created, and outputs our results into the file `rezult`. We then sort and pull out the unique lines from the rezult file to get the password.
 

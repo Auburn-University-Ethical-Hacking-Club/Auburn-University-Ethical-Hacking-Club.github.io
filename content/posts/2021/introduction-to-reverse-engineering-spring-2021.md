@@ -4,7 +4,6 @@ date: "2021-02-23T00:00:00.000Z"
 tags: ["reversing"]
 ---
 
-
 For the next few weeks, we plan to cover reverse engineering. However, in order to do so, we need to give some background to why reverse engineering is important, and how to analyze assembly languages. We will start off this week with a discussion of the x86 architecture and the IA-32 assembly language.
 
 # Topics
@@ -123,20 +122,18 @@ The stack is a portion of memory primarily used for local variables and function
 ### Stack Prologue/Epilogue
 
 When entering and leaving functions, the compiler usually inserts code to properly create and destroy the stack frame. This code is called the stack prologue or stack epilogue. However, this is not guaranteed, as sometimes compilers can skip this step. The most common way to see a stack prologue is with the following set of instructions:
-[code]
-    push ebp
-    mov ebp, esp
-    sub esp, N
-    
-[/code]
+```
+push ebp
+mov ebp, esp
+sub esp, N
+```
 
 Then the stack epilogue is typically the following three instructions:
-[code]
-    mov esp, ebp
-    pop ebp
-    ret
-    
-[/code]
+```
+mov esp, ebp
+pop ebp
+ret
+```
 
 ## Data Structures
 
