@@ -19,6 +19,7 @@ Not only do we present and teach various topics, we also participate in many cyb
 - SECCDC: A blue team-focused event where the team defends a network against attackers in real time, having to balance keeping services running and keeping the bad guys out.
 - CPTC: A red team-focused event, set out to mimic a real-life penetration testing scenario where teams need to both be able to identify weaknesses and convey those in an understandable way to less technical personnel.
 - TracerFire: A blue team event, where teams put digital forensics skills to work to build a timeline for a mock incident by analyzing the data left behind from the attack.
+- CyberFire Puzzles: Hosted in partnership with Los Alamos National Laboratory, CyberFire is a friendly weekend competition covering topics like network forensics, reverse engineering, number theory, and more. Open to all skill levels, including complete beginners.
 
 ## Meetings
 
@@ -27,6 +28,10 @@ We meet weekly on Tuesdays in Shelby 3129 at 5 pm
 ## Objective
 
 AUEHC’s primary objective is to build interest in cybersecurity within Auburn University’s student body. Our members are composed of freshmen to graduate students, each with an interest in different parts of the cybersecurity field. AUEHC is focused on developing a new wave of cybersecurity professionals.
+
+## Membership
+
+Anyone is welcome to attend meetings and events. To become a dues-paying member, join us on [AU Involve](https://auburn.campuslabs.com/engage/organization/auehc). Dues are $10 per semester — stop by a club meeting and we can answer any questions about payment.
 
 ## Contact
 
