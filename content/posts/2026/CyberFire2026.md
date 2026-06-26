@@ -1,7 +1,7 @@
 ---
 title: "Cyber Fire Puzzles 2026"
 date: "2026-06-26T22:08:27.000Z"
-draft: true
+draft: false
 tags: ["event", "ctf", "forensics", "digital forensics", "networking", "basics"]
 # cover:
 #   image: "/images/2026/08/Cyber Fire2026_Flyer.png"
