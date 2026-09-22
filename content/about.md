@@ -23,7 +23,7 @@ Not only do we present and teach various topics, we also participate in many cyb
 
 ## Meetings
 
-We meet weekly on Tuesdays in Shelby 3129 at 5 pm
+We meet weekly on Tuesdays in Shelby 2117 at 5 pm
 
 ## Objective
 
@@ -31,7 +31,7 @@ AUEHC’s primary objective is to build interest in cybersecurity within Auburn 
 
 ## Membership
 
-Anyone is welcome to attend meetings and events. To become a dues-paying member, join us on [AU Involve](https://auburn.campuslabs.com/engage/organization/auehc). Dues are $10 per semester — stop by a club meeting and we can answer any questions about payment.
+Anyone is welcome to attend meetings and events. To become a dues-paying member, join us on [AU Involve](https://auburn.campuslabs.com/engage/organization/auehc). Dues are $10 a year, contact an officer if you have any questions about payment.
 
 ## Contact
 
